@@ -93,9 +93,9 @@ UTFT::UTFT()
 
 UTFT::UTFT(byte model, int RS, int WR, int CS, int RST, int SER)
 { 
-	word	dsx[] = {239, 239, 239, 239, 239, 239, 175, 175, 239, 127, 127, 239, 271, 479, 239, 239, 239, 0, 0, 239, 479, 319, 239, 175, 127, 239, 239, 319, 319, 799, 127, 127};
-	word	dsy[] = {319, 399, 319, 319, 319, 319, 219, 219, 399, 159, 127, 319, 479, 799, 319, 319, 319, 0, 0, 319, 799, 479, 319, 219, 159, 319, 319, 479, 479, 479, 159, 159};
-	byte	dtm[] = {16, 16, 16, 8, 8, 16, 8, SERIAL_4PIN, 16, SERIAL_5PIN, SERIAL_5PIN, 16, 16, 16, 8, 16, LATCHED_16, 0, 0, 8, 16, 16, 16, 8, SERIAL_5PIN, SERIAL_5PIN, SERIAL_4PIN, 16, 16, 16, SERIAL_5PIN, SERIAL_5PIN};
+	word	dsx[] = {239, 239, 239, 239, 239, 239, 175, 175, 239, 127, 127, 239, 271, 479, 239, 239, 239, 175, 0, 239, 479, 319, 239, 175, 127, 239, 239, 319, 319, 799, 127, 127};
+	word	dsy[] = {319, 399, 319, 319, 319, 319, 219, 219, 399, 159, 127, 319, 479, 799, 319, 319, 319, 219, 0, 319, 799, 479, 319, 219, 159, 319, 319, 479, 479, 479, 159, 159};
+	byte	dtm[] = {16, 16, 16, 8, 8, 16, 8, SERIAL_4PIN, 16, SERIAL_5PIN, SERIAL_5PIN, 16, 16, 16, 8, 16, LATCHED_16, SERIAL_5PIN, 0, 8, 16, 16, 16, 8, SERIAL_5PIN, SERIAL_5PIN, SERIAL_4PIN, 16, 16, 16, SERIAL_5PIN, SERIAL_5PIN};
 
 	disp_x_size =			dsx[model];
 	disp_y_size =			dsy[model];
@@ -240,6 +240,9 @@ void UTFT::InitLCD(byte orientation)
 #ifndef DISABLE_ILI9325C
 	#include "tft_drivers/ili9325c/initlcd.h"
 #endif
+#ifndef DISABLE_ILI9225
+	#include "tft_drivers/ili9225/initlcd.h"
+#endif
 #ifndef DISABLE_ILI9325D
 	#include "tft_drivers/ili9325d/default/initlcd.h"
 #endif
@@ -343,6 +346,9 @@ void UTFT::setXY(word x1, word y1, word x2, word y2)
 #endif
 #ifndef DISABLE_ILI9325C
 	#include "tft_drivers/ili9325c/setxy.h"
+#endif
+#ifndef DISABLE_ILI9225
+	#include "tft_drivers/ili9225/setxy.h"
 #endif
 #ifndef DISABLE_ILI9325D
 	#include "tft_drivers/ili9325d/default/setxy.h"

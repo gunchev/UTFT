@@ -67,6 +67,7 @@
 #define S6D1121_16		15
 #define	SSD1289LATCHED	16
 //#define NOT_IN_USE	17
+#define ILI9225			17
 //#define NOT_IN_USE	18
 #define SSD1289_8		19
 #define	SSD1963_800ALT	20
@@ -116,6 +117,7 @@
 #define INFINIT32		16	// SSD1289	(Latched 16bit) -- Legacy, will be removed later
 #define ELEE32_REVA		16	// SSD1289	(Latched 16bit)
 //#define NOT_IN_USE	17	
+#define QD220A			17	// ILI9225	(Serial 5Pin)
 //#define NOT_IN_USE	18	
 #define ELEE32_REVB		19	// SSD1289	(8bit)
 #define TFT01_70		20	// SSD1963	(16bit) 800x480 Alternative Init
